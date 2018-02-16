@@ -3,5 +3,6 @@
   "name": "Hub Project Team",
   "version": "1.0.0",
   "description": "Widget shows Hub project team's user list.",
-  "author": "Max Maximov <max.maximov@gmail.com>"
+  "author": "Max Maximov <max.maximov@gmail.com>",
+  "applicationName": "Hub"
 }
