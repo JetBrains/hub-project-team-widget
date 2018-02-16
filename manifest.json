@@ -1,7 +1,7 @@
 {
   "key": "hub-project-team-widget",
-  "name": "Hub Project Team Widget",
+  "name": "Hub Project Team",
   "version": "1.0.0",
-  "description": "Widget shows Hub project team&#39;s user list.",
-  "author": "Max Maximov &lt;max.maximov@gmail.com&gt;"
+  "description": "Widget shows Hub project team's user list.",
+  "author": "Max Maximov <max.maximov@gmail.com>"
 }
