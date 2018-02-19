@@ -6,10 +6,12 @@ import {render} from 'react-dom';
 import Select from '@jetbrains/ring-ui/components/select/select';
 import Panel from '@jetbrains/ring-ui/components/panel/panel';
 import Button from '@jetbrains/ring-ui/components/button/button';
+import Link from '@jetbrains/ring-ui/components/link/link';
+import Avatar, {Size} from '@jetbrains/ring-ui/components/avatar/avatar';
+import Group from '@jetbrains/ring-ui/components/group/group';
 
 import 'file-loader?name=[name].[ext]!../../manifest.json'; // eslint-disable-line import/no-unresolved
 import styles from './app.css';
-import sayHello from './sayHello';
 
 const COLOR_OPTIONS = [
   {key: 'black', label: 'Black'},
@@ -29,7 +31,9 @@ class Widget extends Component {
 
     this.state = {
       isConfiguring: false,
-      selectedColor: COLOR_OPTIONS[0]
+      selectedColor: COLOR_OPTIONS[0],
+      users: [],
+      homeUrl: ''
     };
 
     registerWidgetApi({
@@ -37,15 +41,39 @@ class Widget extends Component {
     });
 
     this.initialize(dashboardApi);
+
   }
 
-  initialize(dashboardApi) {
-    dashboardApi.readConfig().then(config => {
-      if (!config) {
-        return;
-      }
-      this.setState({selectedColor: config.selectedColor});
-    });
+  async initialize(dashboardApi) {
+    const config = await dashboardApi.readConfig();
+
+    if (!config) {
+      return;
+    }
+
+    this.setState({selectedColor: config.selectedColor});
+
+    const hubServiceId = '0-0-0-0-0';
+
+    const [{homeUrl}, {name: teamName, users}] = await Promise.all([
+      dashboardApi.fetchHub(
+        `api/rest/services/${hubServiceId}`, {
+          query: {
+            fields: 'homeUrl'
+          }
+        }
+      ),
+      dashboardApi.fetchHub(
+        'api/rest/projects/3c7f2569-9533-4b8e-b5c1-a1698e743b9e/team', {
+          query: {
+            fields: 'name,users(id,name,profile/avatar)'
+          }
+        }
+      )
+    ]);
+
+    this.setState({users, homeUrl});
+    dashboardApi.setTitle(teamName);
   }
 
   saveConfig = async () => {
@@ -82,7 +110,7 @@ class Widget extends Component {
   }
 
   render() {
-    const {selectedColor, isConfiguring} = this.state;
+    const {isConfiguring, users, homeUrl} = this.state;
 
     if (isConfiguring) {
       return this.renderConfiguration();
@@ -90,8 +118,18 @@ class Widget extends Component {
 
     return (
       <div className={styles.widget}>
-        <h1 style={{color: selectedColor.key}}>{sayHello()}</h1>
-        <p>{'Select "Edit..." option in widget dropdown to configure text color'}</p>
+        {users.map(user => (
+          <div key={user.id}>
+            <Group>
+              <Avatar
+                style={{verticalAlign: 'middle'}}
+                url={user.profile.avatar.url}
+                size={Size.Size24}
+              />
+              <Link href={`${homeUrl}/users/${user.id}`} target="_blank">{user.name}</Link>
+            </Group>
+          </div>
+        ))}
       </div>
     );
   }

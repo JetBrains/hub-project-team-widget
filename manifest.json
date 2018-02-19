@@ -8,5 +8,11 @@
   "products": {
     "Hub": ">=2018.1",
     "YouTrack": ">=2018.1"
+  },
+  "dependencies": {
+    "Hub": ">=2018.1"
+  },
+  "capabilities": {
+    "popups": true
   }
 }
