@@ -13,11 +13,7 @@ import Group from '@jetbrains/ring-ui/components/group/group';
 import 'file-loader?name=[name].[ext]!../../manifest.json'; // eslint-disable-line import/no-unresolved
 import styles from './app.css';
 
-const COLOR_OPTIONS = [
-  {key: 'black', label: 'Black'},
-  {key: 'red', label: 'Red'},
-  {key: 'blue', label: 'Blue'}
-];
+const HUB_SERVICE_ID = '0-0-0-0-0';
 
 class Widget extends Component {
   static propTypes = {
@@ -31,7 +27,8 @@ class Widget extends Component {
 
     this.state = {
       isConfiguring: false,
-      selectedColor: COLOR_OPTIONS[0],
+      selectedProject: null,
+      projects: [],
       users: [],
       homeUrl: ''
     };
@@ -44,41 +41,70 @@ class Widget extends Component {
 
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (
+      nextState.selectedProject &&
+      (!this.state.selectedProject ||
+      this.state.selectedProject.key !== nextState.selectedProject.key)
+    ) {
+      this.loadProjectTeam(nextState.selectedProject.key);
+    }
+  }
+
+  async loadProjectTeam(projectId) {
+    const {dashboardApi} = this.props;
+    const {name: teamName, users} = await dashboardApi.fetchHub(
+      `api/rest/projects/${projectId}/team`, {
+        query: {
+          fields: 'name,users(id,name,profile/avatar)'
+        }
+      }
+    );
+
+    users.sort((a, b) => a.name.localeCompare(b.name));
+
+    dashboardApi.setTitle(teamName);
+    this.setState({users});
+  }
+
   async initialize(dashboardApi) {
-    const config = await dashboardApi.readConfig();
+    const [{projects}, config] = await Promise.all([
+      dashboardApi.fetchHub(
+        'api/rest/projects', {
+          query: {
+            fields: 'id,name',
+            orderBy: 'name',
+            top: -1
+          }
+        }
+      ),
+      dashboardApi.readConfig()
+    ]);
+
+    this.setState({projects});
 
     if (!config) {
       return;
     }
 
-    this.setState({selectedColor: config.selectedColor});
+    const {selectedProject} = config;
 
-    const hubServiceId = '0-0-0-0-0';
-
-    const [{homeUrl}, {name: teamName, users}] = await Promise.all([
-      dashboardApi.fetchHub(
-        `api/rest/services/${hubServiceId}`, {
-          query: {
-            fields: 'homeUrl'
-          }
+    const {homeUrl} = await dashboardApi.fetchHub(
+      `api/rest/services/${HUB_SERVICE_ID}`, {
+        query: {
+          fields: 'homeUrl'
         }
-      ),
-      dashboardApi.fetchHub(
-        'api/rest/projects/3c7f2569-9533-4b8e-b5c1-a1698e743b9e/team', {
-          query: {
-            fields: 'name,users(id,name,profile/avatar)'
-          }
-        }
-      )
-    ]);
+      }
+    );
 
-    this.setState({users, homeUrl});
-    dashboardApi.setTitle(teamName);
+    this.setState({selectedProject, homeUrl});
+
+    this.loadProjectTeam(selectedProject.key);
   }
 
   saveConfig = async () => {
-    const {selectedColor} = this.state;
-    await this.props.dashboardApi.storeConfig({selectedColor});
+    const {selectedProject} = this.state;
+    await this.props.dashboardApi.storeConfig({selectedProject});
     this.setState({isConfiguring: false});
   };
 
@@ -88,18 +114,23 @@ class Widget extends Component {
     this.initialize(this.props.dashboardApi);
   };
 
-  changeColor = selectedColor => this.setState({selectedColor});
+  changeProject = selectedProject => this.setState({selectedProject});
 
   renderConfiguration() {
-    const {selectedColor} = this.state;
+    const {projects, selectedProject} = this.state;
+
+    const data = projects.map(project => ({
+      key: project.id,
+      label: project.name
+    }));
 
     return (
       <div className={styles.widget}>
         <Select
-          data={COLOR_OPTIONS}
-          selected={selectedColor}
-          onChange={this.changeColor}
-          label="Select text color"
+          data={data}
+          selected={selectedProject}
+          onChange={this.changeProject}
+          label="Select a project"
         />
         <Panel>
           <Button blue={true} onClick={this.saveConfig}>{'Save'}</Button>
