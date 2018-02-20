@@ -151,7 +151,7 @@ class Widget extends Component {
     return (
       <div className={styles.widget}>
         {users.map(user => (
-          <div key={user.id}>
+          <div key={user.id} className={styles.user}>
             <Group>
               <Avatar
                 style={{verticalAlign: 'middle'}}
