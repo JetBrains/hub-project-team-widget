@@ -30,7 +30,7 @@ class Widget extends Component {
       selectedProject: null,
       projects: [],
       users: [],
-      homeUrl: ''
+      hubUrl: ''
     };
 
     registerWidgetApi({
@@ -68,7 +68,7 @@ class Widget extends Component {
   }
 
   async initialize(dashboardApi) {
-    const [{projects}, {homeUrl}, config] = await Promise.all([
+    const [{projects}, {homeUrl: hubUrl}, config] = await Promise.all([
       dashboardApi.fetchHub(
         'api/rest/projects', {
           query: {
@@ -88,7 +88,7 @@ class Widget extends Component {
       dashboardApi.readConfig()
     ]);
 
-    this.setState({projects, homeUrl});
+    this.setState({projects, hubUrl});
 
     if (!config) {
       this.setState({isConfiguring: true});
@@ -142,7 +142,7 @@ class Widget extends Component {
   }
 
   render() {
-    const {isConfiguring, users, homeUrl} = this.state;
+    const {isConfiguring, users, hubUrl} = this.state;
 
     if (isConfiguring) {
       return this.renderConfiguration();
@@ -158,7 +158,7 @@ class Widget extends Component {
                 url={user.profile.avatar.url}
                 size={Size.Size24}
               />
-              <Link href={`${homeUrl}/users/${user.id}`} target="_blank">{user.name}</Link>
+              <Link href={`${hubUrl}/users/${user.id}`} target="_blank">{user.name}</Link>
             </Group>
           </div>
         ))}
