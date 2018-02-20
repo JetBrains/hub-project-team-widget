@@ -74,7 +74,7 @@ class Widget extends Component {
           query: {
             fields: 'id,name',
             orderBy: 'name',
-            top: -1
+            $top: -1
           }
         }
       ),
