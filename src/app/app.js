@@ -84,6 +84,7 @@ class Widget extends Component {
     this.setState({projects});
 
     if (!config) {
+      this.setState({isConfiguring: true});
       return;
     }
 
