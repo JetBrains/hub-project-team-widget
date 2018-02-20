@@ -9,6 +9,8 @@ import Button from '@jetbrains/ring-ui/components/button/button';
 import Link from '@jetbrains/ring-ui/components/link/link';
 import Avatar, {Size} from '@jetbrains/ring-ui/components/avatar/avatar';
 import Group from '@jetbrains/ring-ui/components/group/group';
+import {UserCardTooltip} from '@jetbrains/ring-ui/components/user-card/user-card';
+import {convertUserForCard} from '@jetbrains/ring-ui/components/hub-source/hub-source__user';
 
 import 'file-loader?name=[name].[ext]!../../manifest.json'; // eslint-disable-line import/no-unresolved
 import styles from './app.css';
@@ -30,7 +32,7 @@ class Widget extends Component {
       selectedProject: null,
       projects: [],
       users: [],
-      hubUrl: ''
+      hubUrl: null
     };
 
     registerWidgetApi({
@@ -56,7 +58,7 @@ class Widget extends Component {
     const {name: teamName, users} = await dashboardApi.fetchHub(
       `api/rest/projects/${projectId}/team`, {
         query: {
-          fields: 'name,users(id,name,profile/avatar)'
+          fields: 'name,users(id,login,name,profile(avatar,email/email))'
         }
       }
     );
@@ -152,14 +154,16 @@ class Widget extends Component {
       <div className={styles.widget}>
         {users.map(user => (
           <div key={user.id} className={styles.user}>
-            <Group>
-              <Avatar
-                style={{verticalAlign: 'middle'}}
-                url={user.profile.avatar.url}
-                size={Size.Size24}
-              />
-              <Link href={`${hubUrl}/users/${user.id}`} target="_blank">{user.name}</Link>
-            </Group>
+            <UserCardTooltip user={convertUserForCard(user)}>
+              <Group>
+                <Avatar
+                  style={{verticalAlign: 'middle'}}
+                  url={user.profile.avatar.url}
+                  size={Size.Size24}
+                />
+                <Link href={`${hubUrl}/users/${user.id}`} target="_blank">{user.name}</Link>
+              </Group>
+            </UserCardTooltip>
           </div>
         ))}
       </div>
