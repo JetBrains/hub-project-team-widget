@@ -68,7 +68,7 @@ class Widget extends Component {
   }
 
   async initialize(dashboardApi) {
-    const [{projects}, config] = await Promise.all([
+    const [{projects}, {homeUrl}, config] = await Promise.all([
       dashboardApi.fetchHub(
         'api/rest/projects', {
           query: {
@@ -78,10 +78,17 @@ class Widget extends Component {
           }
         }
       ),
+      dashboardApi.fetchHub(
+        `api/rest/services/${HUB_SERVICE_ID}`, {
+          query: {
+            fields: 'homeUrl'
+          }
+        }
+      ),
       dashboardApi.readConfig()
     ]);
 
-    this.setState({projects});
+    this.setState({projects, homeUrl});
 
     if (!config) {
       this.setState({isConfiguring: true});
@@ -90,15 +97,7 @@ class Widget extends Component {
 
     const {selectedProject} = config;
 
-    const {homeUrl} = await dashboardApi.fetchHub(
-      `api/rest/services/${HUB_SERVICE_ID}`, {
-        query: {
-          fields: 'homeUrl'
-        }
-      }
-    );
-
-    this.setState({selectedProject, homeUrl});
+    this.setState({selectedProject});
 
     this.loadProjectTeam(selectedProject.key);
   }
