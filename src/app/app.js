@@ -132,6 +132,7 @@ class Widget extends Component {
           selected={selectedProject}
           onChange={this.changeProject}
           label="Select a project"
+          filter={true}
         />
         <Panel>
           <Button blue={true} onClick={this.saveConfig}>{'Save'}</Button>
