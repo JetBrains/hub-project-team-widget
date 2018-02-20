@@ -11,6 +11,7 @@ import Avatar, {Size} from '@jetbrains/ring-ui/components/avatar/avatar';
 import Group from '@jetbrains/ring-ui/components/group/group';
 import {UserCardTooltip} from '@jetbrains/ring-ui/components/user-card/user-card';
 import {convertUserForCard} from '@jetbrains/ring-ui/components/hub-source/hub-source__user';
+import Badge from '@jetbrains/ring-ui/components/badge/badge';
 
 import 'file-loader?name=[name].[ext]!../../manifest.json'; // eslint-disable-line import/no-unresolved
 import styles from './app.css';
@@ -32,6 +33,7 @@ class Widget extends Component {
       selectedProject: null,
       projects: [],
       users: [],
+      owner: null,
       hubUrl: null
     };
 
@@ -55,18 +57,30 @@ class Widget extends Component {
 
   async loadProjectTeam(projectId) {
     const {dashboardApi} = this.props;
-    const {name: teamName, users} = await dashboardApi.fetchHub(
+
+    const team = await dashboardApi.fetchHub(
       `api/rest/projects/${projectId}/team`, {
         query: {
-          fields: 'name,users(id,login,name,profile(avatar,email/email))'
+          fields: 'name,users(id,login,name,profile(avatar,email/email)),project/owner'
         }
       }
     );
 
-    users.sort((a, b) => a.name.localeCompare(b.name));
+    const owner = team.project.owner
+      ? team.users.filter(user => user.id === team.project.owner.id)[0]
+      : null;
 
-    dashboardApi.setTitle(teamName);
-    this.setState({users});
+    const users = team.users.
+      filter(user => user !== owner).
+      sort((a, b) => a.name.localeCompare(b.name));
+
+    if (owner) {
+      users.unshift(owner);
+    }
+
+    dashboardApi.setTitle(team.name);
+
+    this.setState({users, owner});
   }
 
   async initialize(dashboardApi) {
@@ -144,7 +158,7 @@ class Widget extends Component {
   }
 
   render() {
-    const {isConfiguring, users, hubUrl} = this.state;
+    const {isConfiguring, users, owner, hubUrl} = this.state;
 
     if (isConfiguring) {
       return this.renderConfiguration();
@@ -161,7 +175,12 @@ class Widget extends Component {
                   url={user.profile.avatar.url}
                   size={Size.Size24}
                 />
+
                 <Link href={`${hubUrl}/users/${user.id}`} target="_blank">{user.name}</Link>
+
+                {user === owner &&
+                  <Badge gray={true}>{'project owner'}</Badge>
+                }
               </Group>
             </UserCardTooltip>
           </div>
