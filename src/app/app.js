@@ -178,7 +178,7 @@ class Widget extends Component {
                   size={Size.Size24}
                 />
 
-                <Link href={`${hubUrl}/users/${user.id}`} target="_blank">{user.name}</Link>
+                <Link href={`${hubUrl}/users/${user.id}`} target="_top">{user.name}</Link>
 
                 {user === owner &&
                   <Badge gray={true}>{'project owner'}</Badge>
