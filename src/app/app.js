@@ -66,11 +66,13 @@ class Widget extends Component {
       }
     );
 
+    const teamMembers = (team.users || []);
+
     const owner = team.project.owner
-      ? team.users.filter(user => user.id === team.project.owner.id)[0]
+      ? teamMembers.filter(user => user.id === team.project.owner.id)[0]
       : null;
 
-    const users = team.users.
+    const users = teamMembers.
       filter(user => user !== owner).
       sort((a, b) => a.name.localeCompare(b.name));
 
