@@ -13,6 +13,6 @@
     "Hub": ">=2018.1"
   },
   "capabilities": {
-    "popups": true
+    "topNavigation": true
   }
 }
