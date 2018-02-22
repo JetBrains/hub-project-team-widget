@@ -16,7 +16,6 @@
     "stylelint": "stylelint --ignore-path .gitignore **/*.css",
     "ci-test": "npm run lint && xvfb-maybe karma start --teamcity",
     "start": "webpack-dev-server -d --history-api-fallback --inline --hot --colors --port 9011",
-    "prepublish-plugin": "npm run build",
     "publish-plugin": "hub-pub publish ./dist pluginId 10467"
   },
   "babel": {
