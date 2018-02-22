@@ -1,5 +1,5 @@
 # Hub project team widget
-[![Build Status][ci-img]][ci-bt] [![JetBrains team project](http://jb.gg/badges/team-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+[![Build Status][ci-img]][ci-bt] [![JetBrains team project](http://jb.gg/badges/team.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 This widget could be installed to Hub or YouTrack. It shows the list of people who belongs to selected project team.
 
