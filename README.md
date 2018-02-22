@@ -1,4 +1,5 @@
-# Hub project team widget [![JetBrains team project](http://jb.gg/badges/team-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+# Hub project team widget
+[![Build Status][ci-img]][ci-bt] [![JetBrains team project](http://jb.gg/badges/team-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 This widget could be installed to Hub or YouTrack. It shows the list of people who belongs to selected project team.
 
@@ -105,3 +106,7 @@ const {username, selectedColor, isConfiguring} = this.state;
 Now we can hit "Reload widget" and see if everything works!
 
 [1]: http://yeoman.io/
+[ci-project]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=JetBrainsUi_HubWidgets_HubProjectTeamsWidget
+[ci-bt]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=JetBrainsUi_HubWidgets_HubProjectTeamsWidget&tab=buildTypeStatusDiv
+[ci-img]:  https://teamcity.jetbrains.com/app/rest/builds/buildType:JetBrainsUi_RingUi_GeminiTests/statusIcon.svg
+
