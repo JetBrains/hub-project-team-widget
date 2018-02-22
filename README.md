@@ -1,3 +1,7 @@
+# Hub project team widget [![JetBrains team project](http://jb.gg/badges/team-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+
+This widget could be installed to Hub or YouTrack. It shows the list of people who belongs to selected project team.
+
 ## Developing a Hub widget
 The following commands are available:
 
