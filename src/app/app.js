@@ -78,7 +78,8 @@ class Widget extends Component {
       users.unshift(owner);
     }
 
-    dashboardApi.setTitle(team.name);
+    // eslint-disable-next-line max-len
+    dashboardApi.setTitle(`${team.name}: ${users.length} ${users.length === 1 ? 'member' : 'members' }`);
 
     this.setState({users, owner});
   }
