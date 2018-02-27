@@ -185,7 +185,9 @@ class Widget extends Component {
                 }
               </div>
 
-              <div>{user.profile.email ? user.profile.email.email : null}</div>
+              <div className={styles.userEmail}>
+                {user.profile.email ? user.profile.email.email : null}
+              </div>
             </div>
           </div>
         ))}
