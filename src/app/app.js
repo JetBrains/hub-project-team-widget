@@ -8,12 +8,10 @@ import Panel from '@jetbrains/ring-ui/components/panel/panel';
 import Button from '@jetbrains/ring-ui/components/button/button';
 import Link from '@jetbrains/ring-ui/components/link/link';
 import Avatar, {Size} from '@jetbrains/ring-ui/components/avatar/avatar';
-import Group from '@jetbrains/ring-ui/components/group/group';
-import {UserCardTooltip} from '@jetbrains/ring-ui/components/user-card/user-card';
-import {convertUserForCard} from '@jetbrains/ring-ui/components/hub-source/hub-source__user';
 import Badge from '@jetbrains/ring-ui/components/badge/badge';
 
-import 'file-loader?name=[name].[ext]!../../manifest.json'; // eslint-disable-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved
+import 'file-loader?name=[name].[ext]!../../manifest.json';
 import styles from './app.css';
 
 const HUB_SERVICE_ID = '0-0-0-0-0';
@@ -170,21 +168,25 @@ class Widget extends Component {
       <div className={styles.widget}>
         {users.map(user => (
           <div key={user.id} className={styles.user}>
-            <UserCardTooltip user={convertUserForCard(user)}>
-              <Group>
-                <Avatar
-                  style={{verticalAlign: 'middle'}}
-                  url={user.profile.avatar.url}
-                  size={Size.Size24}
-                />
+            <div className={styles.userAvatar}>
+              <Avatar
+                style={{verticalAlign: 'middle'}}
+                url={user.profile.avatar.url}
+                size={Size.Size32}
+              />
+            </div>
 
+            <div className={styles.userInfo}>
+              <div>
                 <Link href={`${hubUrl}/users/${user.id}`} target="_top">{user.name}</Link>
 
                 {user === owner &&
-                  <Badge gray={true}>{'project owner'}</Badge>
+                  <Badge gray={true} className={styles.badge}>{'project owner'}</Badge>
                 }
-              </Group>
-            </UserCardTooltip>
+              </div>
+
+              <div>{user.profile.email ? user.profile.email.email : null}</div>
+            </div>
           </div>
         ))}
       </div>

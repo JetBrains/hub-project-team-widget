@@ -17,5 +17,26 @@
 }
 
 .user:not(:last-child) {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.userAvatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  height: 32px;
+  line-height: 15px;
+  justify-content: space-between;
+}
+
+.badge {
+  height: auto;
+  padding: 1px 6px;
+  margin-left: 8px;
+  margin-top: -2px;
+  position: absolute;
 }
