@@ -150,8 +150,14 @@ class Widget extends Component {
           label="Select a project"
           filter={true}
         />
+
         <Panel>
-          <Button blue={true} onClick={this.saveConfig}>{'Save'}</Button>
+          <Button
+            blue={true}
+            onClick={this.saveConfig}
+            disabled={!selectedProject}
+          >{'Save'}</Button>
+
           <Button onClick={this.cancelConfig}>{'Cancel'}</Button>
         </Panel>
       </div>
