@@ -1,10 +1,9 @@
 {
   "key": "hub-project-team-widget",
-  "name": "Hub Project Team",
+  "name": "Project Team",
   "version": "1.0.5",
-  "description": "Widget shows Hub project team's user list.",
+  "description": "Widget shows project team's user list.",
   "author": "Max Maximov <max.maximov@gmail.com>",
-  "applicationName": "Hub",
   "products": {
     "Hub": ">=2018.1",
     "YouTrack": ">=2018.1"
