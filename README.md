@@ -1,9 +1,11 @@
-# Hub project team widget
+# Project Team Widget
 [![Build Status][ci-img]][ci-bt] [![JetBrains team project](http://jb.gg/badges/team.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-This widget could be installed to Hub or YouTrack. It shows the list of people who belongs to selected project team.
+This widget shows the list of users and members of groups who are assigned to a project team. This widget can be added to dashboards and project overview pages in a Hub installation. You can also add this widget to dashboards in YouTrack.
 
-## Developing a Hub widget
+## Widget Development
+This project is open source. You are welcome to contribute to the development of this widget or use the source code as a springboard to develop your own widgets.
+
 The following commands are available:
 
   - `npm test` to launch karma tests
@@ -12,98 +14,22 @@ The following commands are available:
   - `npm run stylelint` to lint CSS only
   - `npm run build` to generate a production bundle (will be available under `dist`)
   - `npm run ci-test` to launch karma tests and report the results to TeamCity
+  
+## Widget Testing
 
-To check your widget, go to the widget playground page located at `<your_hub_server>/dashboard/widgets-playground`.
+You can test widget updates directly in the user interface for Hub and YouTrack. To determine which instructions are appropriate for your installation, check the product icon in the header of your **Dashboards** page.
 
-You may encounter the following problem when using a local development server together with Hub running over HTTPS: all major browsers block insecure scripts. 
-In Chrome you can add a security exception: click the security notification in the address bar (the one saying "The page is trying to load scripts from unauthenticated sources") and 
+- External Hub installations and Hub services that are bundled with Upsource display the Hub logo. Follow the instructions in the [Hub documentation](https://www.jetbrains.com/help/hub/test-custom-widgets.html).
+- YouTrack Standalone installations that use a built-in Hub service and YouTrack InCloud display the YouTrack logo. Follow the instructions in the [YouTrack documentation](https://www.jetbrains.com/help/youtrack/standalone/test-custom-widgets.html).
+
+All major browsers block insecure scripts. You may encounter a problem when you host your widget on a local development server and try to load it into an application over HTTPS. 
+In Chrome, you can add a security exception: click the security notification in the address bar (the one that says "The page is trying to load scripts from unauthenticated sources") and 
 press the "Load unsafe scripts" button. Similar workarounds are available in other browsers as well.
+Additional options for testing widgets over a secure connection are described in the documentation for Hub and YouTrack.
 
-## Introduction into widget development
-The `app` folder contains a demo widget that shows a welcome message. Its configuration screen allows selecting the font color.
+## JetBrains Ring UI Widget Generator
 
-In this guide we'll show you how to add a new parameter to the configuration screen and use its value in the rendered widget.
-
-Open the `app.js` file, all the changes will be made there.
-
-First of all, import the `Input` component from Ring UI:
-
-```
-import Input from '@jetbrains/ring-ui/components/input/input';
-```
-
-Configuration screen is rendered by the `renderConfiguration` function. Let's put an input below the select:
-
-```
-<Input
-  label="What is your name?"
-/>
-```
-
-To set input's placeholder use the `label` property.
-
-If you haven't launched the dev server yet, run `yarn start`, open the widget playground (`<your_hub_server>/dashboard/widgets-playground`), 
-specify the URL of the dev server (e.g., `http://localhost:9010/`) and reload the widget by clicking the corresponding button.
-
-An input we've just added should appear on the configuration screen of the widget.
-
-To store the value of the input in the state of the widget, we add the `onChange` prop:
-
-```
-<Input
-  label="What is your name?"
-  onChange={this.changeName}
-/>
-```
-
-and implement the `changeName` handler:
-
-```
-changeName = e => this.setState({
-  username: e.target.value
-});
-```
-
-To display the value we retrieve it from state in the very beginning of the `renderConfiguration` function together with `selectedColor`:
-
-```
-const {selectedColor, username} = this.state;
-```
-
-and pass the value into the `Input` as `value` prop:
-
-```
-value={username}
-```
-
-Our `Input` now looks like this:
-
-```
-<Input
-  label="What is your name?"
-  value={username}
-  onChange={this.changeName}
-/>
-```
-
-Now, we need to persist the value. To do so, Dashboard API comes in handy:
-
-```
-const {selectedColor, username} = this.state;
-await this.props.dashboardApi.storeConfig({selectedColor, username});
-```
-
-Finally, we use the stored value in the `render` method of our widget: 
-
-```
-const {username, selectedColor, isConfiguring} = this.state;
-
-...
-
-<h1 style={{color: selectedColor.key}}>{sayHello(username)}</h1>
-```
-
-Now we can hit "Reload widget" and see if everything works!
+This project was built using the [widget generator](https://github.com/JetBrains/ring-ui/tree/master/packages/generator/hub-widget) from the JetBrains Ring UI Library. If you want to build your own widgets for use in one of our products, this tool helps you get up and running in seconds flat.
 
 [1]: http://yeoman.io/
 [ci-project]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=JetBrainsUi_HubWidgets_HubProjectTeamsWidget
