@@ -108,6 +108,7 @@ class Widget extends Component {
     this.setState({projects, hubUrl});
 
     if (!config) {
+      dashboardApi.enterConfigMode();
       this.setState({isConfiguring: true});
       return;
     }
