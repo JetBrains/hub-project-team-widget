@@ -2,7 +2,7 @@
   "key": "hub-project-team-widget",
   "name": "Project Team",
   "version": "1.0.6",
-  "description": "Widget shows project team's user list.",
+  "description": "Displays a list of users who are members of a project team in Hub.",
   "author": "Max Maximov <max.maximov@gmail.com>",
   "products": {
     "Hub": ">=2018.1",
