@@ -31,6 +31,21 @@ Additional options for testing widgets over a secure connection are described in
 
 This project was built using the [widget generator](https://github.com/JetBrains/ring-ui/tree/master/packages/generator/hub-widget) from the JetBrains Ring UI Library. If you want to build your own widgets for use in one of our products, this tool helps you get up and running in seconds flat.
 
+## Widget Installation
+
+This widget is available from the [JetBrains Plugins Repository](https://plugins.jetbrains.com/). This repository is integrated directly into the **Custom Widgets** page in your Hub or YouTrack installation. To install any widget from this repository:
+1. Open the **Custom Widgets** page in your installation.
+2. Select the widget that you want to install from the list.
+3. Click the **Install** button in the page header.
+
+## Contributions
+
+We appreciate all kinds of feedback. Please feel free to send a pull request or submit an issue.
+
+## License
+
+This project is licensed under the Apache 2.0 License. For details, refer to the [LICENSE.txt file](https://github.com/JetBrains/hub-project-team-widget/blob/master/LICENSE.txt).
+
 [1]: http://yeoman.io/
 [ci-project]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=JetBrainsUi_HubWidgets_HubProjectTeamsWidget
 [ci-bt]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=JetBrainsUi_HubWidgets_HubProjectTeamsWidget&tab=buildTypeStatusDiv
