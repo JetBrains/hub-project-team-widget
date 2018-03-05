@@ -3,10 +3,12 @@
 
 This widget shows the list of users and members of groups who are assigned to a project team. This widget can be added to dashboards and project overview pages in a Hub installation. You can also add this widget to dashboards in YouTrack.
 
-## Widget Development
+## Getting Started
 This project is open source. You are welcome to contribute to the development of this widget or use the source code as a springboard to develop your own widgets.
 
-The following commands are available:
+After you check out the project, run `npm install` once to install all of the dependencies.
+
+When installed, the following commands are available:
 
   - `npm test` to launch karma tests
   - `npm start` to run a local development server
@@ -42,6 +44,16 @@ This widget is available from the [JetBrains Plugins Repository](https://plugins
 
 We appreciate all kinds of feedback. Please feel free to send a pull request or submit an issue.
 
+## Contributors
+
+Thanks goes to these rockstars ([emoji key][emojis]):
+
+| [<img src="https://avatars1.githubusercontent.com/u/86095?v=4" width="100px;"/><br /><sub><b>Max Maximov</b></sub>](http://maxmaximov.com/)<br />[💻](https://github.com/JetBrains/hub-project-team-widget/commits?author=maxmaximov "Code") | [<img src="https://avatars2.githubusercontent.com/u/4318513?v=4" width="100px;"/><br /><sub><b>Andrey Skladchikov</b></sub>](https://github.com/huston007)<br />[💻](https://github.com/JetBrains/hub-project-team-widget/commits?author=huston007 "Code") | [<img src="https://avatars1.githubusercontent.com/u/1948936?v=4" width="100px;"/><br /><sub><b>Max Erekhinskiy</b></sub>](http://vk.com/nightflash)<br />[💻](https://github.com/JetBrains/hub-project-team-widget/commits?author=nightflash "Code") | [<img src="https://avatars2.githubusercontent.com/u/16539758?v=4" width="100px;"/><br /><sub><b>Scott Adams</b></sub>](https://github.com/scotta451)<br />[📖](https://github.com/JetBrains/hub-project-team-widget/commits?author=scotta451 "Documentation") |
+| :---: | :---: | :---: | :---: |
+
+This project follows the [all-contributors][all-contributors] specification.
+Contributions of any kind are welcome!
+
 ## License
 
 This project is licensed under the Apache 2.0 License. For details, refer to the [LICENSE.txt file](https://github.com/JetBrains/hub-project-team-widget/blob/master/LICENSE.txt).
@@ -50,4 +62,5 @@ This project is licensed under the Apache 2.0 License. For details, refer to the
 [ci-project]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=JetBrainsUi_HubWidgets_HubProjectTeamsWidget
 [ci-bt]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=JetBrainsUi_HubWidgets_HubProjectTeamsWidget&tab=buildTypeStatusDiv
 [ci-img]:  https://teamcity.jetbrains.com/app/rest/builds/buildType:JetBrainsUi_RingUi_GeminiTests/statusIcon.svg
-
+[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
+[all-contributors]: https://github.com/kentcdodds/all-contributors
