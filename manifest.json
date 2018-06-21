@@ -4,6 +4,7 @@
   "version": "1.0.7",
   "description": "Displays a list of users who are members of a project team in Hub.",
   "author": "Max Maximov <max.maximov@gmail.com>",
+  "applicationName": "Hub",
   "products": {
     "Hub": ">=2018.1",
     "YouTrack": ">=2018.1"
