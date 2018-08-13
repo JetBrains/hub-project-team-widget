@@ -1,6 +1,6 @@
 #! /bin/bash
 
-zip -r dist.zip dist
+tar -czf dist.zip ./dist
 
 curl -X -v POST -L \
    -F "password=$pluginsRepositoryLogin" \
