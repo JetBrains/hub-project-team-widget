@@ -2,7 +2,7 @@
 
 zip -r dist.zip dist
 
-curl -X POST -L \
+curl -X -v POST -L \
    -F "password=$pluginsRepositoryLogin" \
    -F "pluginId=10467" \
    -F "userName=$pluginsRepositoryPassword" \
