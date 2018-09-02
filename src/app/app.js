@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import DashboardAddons from 'hub-dashboard-addons';
+import {setLocale, i18n} from 'hub-dashboard-addons/dist/localization';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {render} from 'react-dom';
@@ -9,6 +10,8 @@ import Button from '@jetbrains/ring-ui/components/button/button';
 import Link from '@jetbrains/ring-ui/components/link/link';
 import Avatar, {Size} from '@jetbrains/ring-ui/components/avatar/avatar';
 import Badge from '@jetbrains/ring-ui/components/badge/badge';
+
+import TRANSLATIONS from './translations';
 
 // eslint-disable-next-line import/no-unresolved
 import 'file-loader?name=[name].[ext]!../../manifest.json';
@@ -155,7 +158,7 @@ class Widget extends Component {
           data={data}
           selected={selectedProject}
           onChange={this.changeProject}
-          label="Select a project"
+          label={i18n('Select a project')}
           filter={true}
         />
 
@@ -164,9 +167,9 @@ class Widget extends Component {
             blue={true}
             onClick={this.saveConfig}
             disabled={!selectedProject}
-          >{'Save'}</Button>
+          >{i18n('Save')}</Button>
 
-          <Button onClick={this.cancelConfig}>{'Cancel'}</Button>
+          <Button onClick={this.cancelConfig}>{i18n('Cancel')}</Button>
         </Panel>
       </div>
     );
@@ -196,7 +199,9 @@ class Widget extends Component {
                 <Link href={`${hubUrl}/users/${user.id}`} target="_top">{user.name}</Link>
 
                 {user === owner &&
-                  <Badge gray={true} className={styles.badge}>{'project owner'}</Badge>
+                  <Badge gray={true} className={styles.badge}>
+                    {i18n('project owner')}
+                  </Badge>
                 }
               </div>
 
@@ -211,12 +216,14 @@ class Widget extends Component {
   }
 }
 
-DashboardAddons.registerWidget((dashboardApi, registerWidgetApi) =>
+DashboardAddons.registerWidget((dashboardApi, registerWidgetApi) => {
+  setLocale(DashboardAddons.locale, TRANSLATIONS);
+
   render(
     <Widget
       dashboardApi={dashboardApi}
       registerWidgetApi={registerWidgetApi}
     />,
     document.getElementById('app-container')
-  )
-);
+  );
+});
