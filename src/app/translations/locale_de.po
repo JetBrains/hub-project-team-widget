@@ -2,13 +2,50 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: youtrack-widgets\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Project-Id-Version: Client\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Language: de\n"
-"X-Generator: Poedit 1.6.8\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: youtrack-widgets\n"
+"X-Crowdin-Language: de\n"
+"X-Crowdin-File: hub-project-team-widget.pot\n"
+"Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"PO-Revision-Date: 2018-09-02 18:35\n"
+
+#: src/app/app.js:172
+msgid "Cancel"
+msgstr ""
+
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:90
+msgid "January|February|March|April|May|June|July|August|September|October|November|December"
+msgstr ""
+
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:89
+msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
+msgstr ""
+
+#: src/app/app.js:170
+msgid "Save"
+msgstr ""
+
+#: src/app/app.js:161
+msgid "Select a project"
+msgstr ""
+
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:88
+msgid "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"
+msgstr ""
+
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:87
+msgid "Sun|Mon|Tue|Wed|Thu|Fri|Sat"
+msgstr ""
+
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:91
+msgid "am|pm"
+msgstr ""
+
+#: src/app/app.js:203
+msgid "project owner"
+msgstr ""
 
