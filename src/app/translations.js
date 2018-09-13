@@ -1,7 +1,7 @@
-import {de} from './translations/locale_de.po';
-import {es} from './translations/locale_es.po';
-import {fr} from './translations/locale_fr.po';
-import {ru} from './translations/locale_ru.po';
-import {ja} from './translations/locale_ja.po';
+import {de} from './translations/hub-project-team-widget_de.po';
+import {es} from './translations/hub-project-team-widget_es.po';
+import {fr} from './translations/hub-project-team-widget_fr.po';
+import {ru} from './translations/hub-project-team-widget_ru.po';
+import {ja} from './translations/hub-project-team-widget_ja.po';
 
 export default {de, es, fr, ru, ja};
