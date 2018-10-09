@@ -88,7 +88,7 @@ class Widget extends Component {
   }
 
   async initialize(dashboardApi) {
-    const [{projects}, {homeUrl: hubUrl}, config] = await Promise.all([
+    const [{projects}, {homeUrl: hubUrl, name: hubServiceName}, config] = await Promise.all([
       dashboardApi.fetchHub(
         'api/rest/projects', {
           query: {
@@ -101,14 +101,19 @@ class Widget extends Component {
       dashboardApi.fetchHub(
         `api/rest/services/${HUB_SERVICE_ID}`, {
           query: {
-            fields: 'homeUrl'
+            fields: 'homeUrl,name'
           }
         }
       ),
       dashboardApi.readConfig()
     ]);
 
-    this.setState({projects, hubUrl});
+    this.setState({
+      projects,
+      hubUrl: hubServiceName === 'YouTrack Administration'
+        ? hubUrl.replace('/hub', '/youtrack')
+        : hubUrl
+    });
 
     if (!config) {
       dashboardApi.enterConfigMode();
