@@ -22,15 +22,18 @@
 
 .userAvatar {
   float: left;
+
   margin-right: 10px;
 }
 
 .userInfo {
   display: flex;
   flex-direction: column;
-  height: 32px;
-  line-height: 15px;
   justify-content: space-between;
+
+  height: 32px;
+
+  line-height: 15px;
 }
 
 .userEmail {
@@ -38,9 +41,10 @@
 }
 
 .badge {
-  height: auto;
-  padding: 1px 6px;
-  margin-left: 8px;
-  margin-top: -2px;
   position: absolute;
+
+  height: auto;
+  margin-top: -2px;
+  margin-left: 8px;
+  padding: 1px 6px;
 }
