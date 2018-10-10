@@ -11,41 +11,49 @@ msgstr ""
 "Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-09-13 19:23\n"
+"PO-Revision-Date: 2018-10-10 18:46\n"
 
-#: src/app/app.js:172
+#: src/app/app.js:177
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:90
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
-msgstr ""
+msgstr "январь|февраль|март|апрель|май|июнь|июль|август|сентябрь|октябрь|ноябрь|декабрь"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:89
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
-msgstr ""
+msgstr "янв|фев|мар|апр|мая|июн|июл|авг|сен|окт|ноя|дек"
 
-#: src/app/app.js:170
+#: src/app/app.js:175
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
-#: src/app/app.js:161
+#: src/app/app.js:166
 msgid "Select a project"
-msgstr ""
+msgstr "Выберите проект"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:88
 msgid "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"
-msgstr ""
+msgstr "воскресенье|понедельник|вторник|среда|четверг|пятница|суббота"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:87
 msgid "Sun|Mon|Tue|Wed|Thu|Fri|Sat"
-msgstr ""
+msgstr "вск|пнд|втр|срд|чтв|птн|сбт"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:91
 msgid "am|pm"
+msgstr "ДП|ПП"
+
+#: src/app/app.js:85
+msgid "member"
 msgstr ""
 
-#: src/app/app.js:203
-msgid "project owner"
+#: src/app/app.js:85
+msgid "members"
 msgstr ""
+
+#: src/app/app.js:208
+msgid "project owner"
+msgstr "владелец проекта"
 
