@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
-"PO-Revision-Date: 2018-10-10 21:07\n"
+"PO-Revision-Date: 2018-12-25 16:43\n"
 
 #: src/app/app.js:177
 msgid "Cancel"
@@ -45,15 +45,11 @@ msgstr "日|月|火|水|木|金|土"
 msgid "am|pm"
 msgstr "am|pm"
 
-#: src/app/app.js:85
-msgid "member"
-msgstr ""
-
-#: src/app/app.js:85
-msgid "members"
-msgstr ""
-
 #: src/app/app.js:208
 msgid "project owner"
 msgstr "プロジェクトオーナー"
+
+#: src/app/app.js:85
+msgid "{{count}} members"
+msgstr ""
 
