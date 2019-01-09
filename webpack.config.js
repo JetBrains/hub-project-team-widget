@@ -2,6 +2,8 @@ const {join, resolve} = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ringUiWebpackConfig = require('@jetbrains/ring-ui/webpack.config');
+const variables = require('@jetbrains/ring-ui/extract-css-vars');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const pkgConfig = require('./package.json').config;
 
@@ -44,7 +46,14 @@ const webpackConfig = () => ({
               localIdentName: '[name]__[local]__[hash:base64:7]'
             }
           },
-          'postcss-loader'
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                ctx: {variables}
+              }
+            }
+          }
         ]
       },
       {
@@ -87,7 +96,10 @@ const webpackConfig = () => ({
   plugins: [
     new HtmlWebpackPlugin({
       template: 'html-loader?interpolate!src/index.html'
-    })
+    }),
+    new CopyWebpackPlugin([
+      'manifest.json'
+    ], {})
   ]
 });
 

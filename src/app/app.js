@@ -14,7 +14,7 @@ import Badge from '@jetbrains/ring-ui/components/badge/badge';
 import TRANSLATIONS from './translations';
 
 // eslint-disable-next-line import/no-unresolved
-import 'file-loader?name=[name].[ext]!../../manifest.json';
+// import '!!file-loader?name=[name].[ext]!../../manifest.json';
 import styles from './app.css';
 
 const HUB_SERVICE_ID = '0-0-0-0-0';
