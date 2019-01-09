@@ -1,16 +1,18 @@
-@value unit, font, font-size from "@jetbrains/ring-ui/components/global/global.css";
+@import "@jetbrains/ring-ui/components/global/variables.css";
+
+@value unit from "@jetbrains/ring-ui/components/global/global.css";
 
 :global(.widget-body) {
   margin: 0;
   padding: calc(unit * 2);
 
-  background: #fff;
+  background: var(--ring-content-background-color);
 
-  font-size: font-size;
+  font-size: var(--ring-font-size);
 }
 
 .widget {
-  composes: font;
+  composes: font from "@jetbrains/ring-ui/components/global/global.css";
 
   margin: 0;
   padding: 0;
@@ -37,7 +39,7 @@
 }
 
 .userEmail {
-  font-size: 12px;
+  font-size: var(--ring-font-size-smaller);
 }
 
 .badge {
