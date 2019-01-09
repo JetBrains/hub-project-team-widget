@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-12-25 16:44\n"
+"PO-Revision-Date: 2018-12-26 21:03\n"
 
 #: src/app/app.js:177
 msgid "Cancel"
@@ -51,5 +51,5 @@ msgstr "владелец проекта"
 
 #: src/app/app.js:85
 msgid "{{count}} members"
-msgstr ""
+msgstr "{{count}} чел."
 

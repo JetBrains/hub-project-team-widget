@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
-"PO-Revision-Date: 2018-12-25 16:43\n"
+"PO-Revision-Date: 2018-12-25 21:04\n"
 
 #: src/app/app.js:177
 msgid "Cancel"
