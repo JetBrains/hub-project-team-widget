@@ -82,7 +82,9 @@ class Widget extends Component {
     }
 
     // eslint-disable-next-line max-len
-    dashboardApi.setTitle(`${team.name}: ${i18n('{{count}} members', {count: users.length})}`);
+    dashboardApi.setTitle(
+      `${team.name}: ${i18n.plural(users.length, '1 member', '{{$count}} members')}`
+    );
 
     this.setState({users, owner});
   }
