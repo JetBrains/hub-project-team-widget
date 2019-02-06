@@ -11,45 +11,47 @@ msgstr ""
 "Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
-"PO-Revision-Date: 2018-12-25 21:04\n"
+"PO-Revision-Date: 2019-02-06 11:57\n"
 
-#: src/app/app.js:177
+#: src/app/app.js:86
+msgid "1 member"
+msgid_plural "{{$count}} members"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/app/app.js:179
 msgid "Cancel"
 msgstr "Annuler"
 
-#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:90
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
 msgstr "Janvier|Février|Mars|Avril|Mai|Juin|Juillet|Août|Septembre|Octobre|Novembre|Décembre"
 
-#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:89
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:115
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 msgstr "Jan|Fév|Mar|Avr|Mai|Jun|Jul|Aoû|Sep|Oct|Nov|Déc"
 
-#: src/app/app.js:175
+#: src/app/app.js:177
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/app/app.js:166
+#: src/app/app.js:168
 msgid "Select a project"
 msgstr "Sélectionner un projet"
 
-#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:88
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:114
 msgid "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"
 msgstr "Dimanche|Lundi|Mardi|Mercredi|Jeudi|Vendredi|Samedi"
 
-#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:87
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:113
 msgid "Sun|Mon|Tue|Wed|Thu|Fri|Sat"
 msgstr "Dim|Lun|Mar|Mer|Jeu|Ven|Sam"
 
-#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:91
+#: node_modules/hub-dashboard-addons/components/localization/src/localization.js:117
 msgid "am|pm"
 msgstr "am|pm"
 
-#: src/app/app.js:208
+#: src/app/app.js:210
 msgid "project owner"
 msgstr "propriétaire du projet"
-
-#: src/app/app.js:85
-msgid "{{count}} members"
-msgstr ""
 
