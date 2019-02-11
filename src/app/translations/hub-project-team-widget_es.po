@@ -11,15 +11,15 @@ msgstr ""
 "Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
-"PO-Revision-Date: 2019-02-06 12:49\n"
+"PO-Revision-Date: 2019-02-11 08:58\n"
 
-#: src/app/app.js:86
+#: src/app/app.js:85
 msgid "1 member"
 msgid_plural "{{$count}} members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/app/app.js:179
+#: src/app/app.js:178
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -31,11 +31,11 @@ msgstr "Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Nov
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 msgstr "Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic"
 
-#: src/app/app.js:177
+#: src/app/app.js:176
 msgid "Save"
 msgstr "Guardar"
 
-#: src/app/app.js:168
+#: src/app/app.js:167
 msgid "Select a project"
 msgstr "Seleccionar proyecto"
 
@@ -51,7 +51,7 @@ msgstr "Dom|Lun|Mar|Mié|Jue|Vie|Sáb"
 msgid "am|pm"
 msgstr "a. m. |p. m."
 
-#: src/app/app.js:210
+#: src/app/app.js:209
 msgid "project owner"
 msgstr "propietario del proyecto"
 
