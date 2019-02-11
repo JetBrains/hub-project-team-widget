@@ -9,12 +9,12 @@
   },
   "scripts": {
     "create-component": "yo @jetbrains/ring-ui:react --path $npm_package_config_components",
-    "build": "rm -rf dist && webpack -p --devtool sourcemap",
+    "build": "rm -rf dist && webpack --mode production",
     "test": "karma start",
     "lint": "eslint . && npm run stylelint",
     "stylelint": "stylelint --ignore-path .gitignore **/*.css",
     "ci-test": "npm run lint && xvfb-maybe karma start --teamcity",
-    "start": "webpack-dev-server -d --history-api-fallback --inline --hot --colors --port 9011",
+    "start": "webpack-dev-server --history-api-fallback --inline --hot --colors --port 9011",
     "i18n:extract": "angular-gettext-cli --files \"{src/**/*.js,node_modules/hub-dashboard-addons/components/**/*.js}\" --dest src/app/translations/default.pot --marker-name=i18n --module-method-plural=plural --module-name=i18n"
   },
   "babel": {
@@ -72,6 +72,7 @@
     "karma-sourcemap-loader": "0.3.7",
     "karma-teamcity-reporter": "1.1.0",
     "karma-webpack": "2.0.9",
+    "mini-css-extract-plugin": "0.5.0",
     "mocha": "5.0.0",
     "react-test-renderer": "16.8.1",
     "sinon": "4.3.0",

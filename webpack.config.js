@@ -1,5 +1,6 @@
 const {join, resolve} = require('path');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ringUiWebpackConfig = require('@jetbrains/ring-ui/webpack.config');
 const variables = require('@jetbrains/ring-ui/extract-css-vars');
@@ -15,7 +16,10 @@ ringUiWebpackConfig.loaders.svgSpriteLoader.include.push(
   require('@jetbrains/icons')
 );
 
+ringUiWebpackConfig.loaders.cssLoader.use[0] = MiniCssExtractPlugin.loader;
+
 const webpackConfig = () => ({
+  mode: 'development',
   entry: `${componentsPath}/app/app.js`,
   resolve: {
     mainFields: ['module', 'browser', 'main'],
@@ -37,7 +41,7 @@ const webpackConfig = () => ({
         test: /\.css$/,
         include: componentsPath,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -85,6 +89,7 @@ const webpackConfig = () => ({
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
+    disableHostCheck: true,
     stats: {
       assets: false,
       children: false,
@@ -99,7 +104,8 @@ const webpackConfig = () => ({
     }),
     new CopyWebpackPlugin([
       'manifest.json'
-    ], {})
+    ], {}),
+    new MiniCssExtractPlugin({filename: '[name].[hash:4].css'})
   ]
 });
 
