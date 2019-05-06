@@ -38,7 +38,8 @@ class Widget extends Component {
     };
 
     registerWidgetApi({
-      onConfigure: () => this.setState({isConfiguring: true})
+      onConfigure: () => this.setState({isConfiguring: true}),
+      getExternalWidgetOptions: () => ({authClientId: '0-0-0-0-0'})
     });
 
     this.initialize(dashboardApi);
