@@ -8,18 +8,18 @@ msgstr ""
 "X-Crowdin-Project: youtrackjetbrains\n"
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /widgets/hub-project-team-widget/default.pot\n"
-"Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
+"Last-Translator: JetBrains (jetbrains)\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2019-02-11 08:58\n"
+"PO-Revision-Date: 2019-05-07 10:19\n"
 
-#: src/app/app.js:85
+#: src/app/app.js:86
 msgid "1 member"
 msgid_plural "{{$count}} members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 Mitglied"
+msgstr[1] "{{$count}} Mitglieder"
 
-#: src/app/app.js:178
+#: src/app/app.js:179
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -31,11 +31,11 @@ msgstr "Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|Novemb
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 msgstr "Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez"
 
-#: src/app/app.js:176
+#: src/app/app.js:177
 msgid "Save"
 msgstr "Speichern"
 
-#: src/app/app.js:167
+#: src/app/app.js:168
 msgid "Select a project"
 msgstr "Projekt auswählen"
 
@@ -51,7 +51,7 @@ msgstr "So|Mo|Di|Mi|Do|Fr|Sa"
 msgid "am|pm"
 msgstr "AM|PM"
 
-#: src/app/app.js:209
+#: src/app/app.js:210
 msgid "project owner"
 msgstr "Projektbesitzer"
 

@@ -8,17 +8,17 @@ msgstr ""
 "X-Crowdin-Project: youtrackjetbrains\n"
 "X-Crowdin-Language: ja\n"
 "X-Crowdin-File: /widgets/hub-project-team-widget/default.pot\n"
-"Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
+"Last-Translator: JetBrains (jetbrains)\n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
-"PO-Revision-Date: 2019-02-11 08:58\n"
+"PO-Revision-Date: 2019-05-07 10:19\n"
 
-#: src/app/app.js:85
+#: src/app/app.js:86
 msgid "1 member"
 msgid_plural "{{$count}} members"
-msgstr[0] ""
+msgstr[0] "{{$count}}人のメンバー"
 
-#: src/app/app.js:178
+#: src/app/app.js:179
 msgid "Cancel"
 msgstr "取り消す"
 
@@ -30,11 +30,11 @@ msgstr "1月|2月|3月|4月|5月|6月|7月|8月|9月|10月|11月|12月"
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 msgstr "1月|2月|3月|4月|5月|6月|7月|8月|9月|10月|11月|12月"
 
-#: src/app/app.js:176
+#: src/app/app.js:177
 msgid "Save"
 msgstr "保存"
 
-#: src/app/app.js:167
+#: src/app/app.js:168
 msgid "Select a project"
 msgstr "プロジェクトの選択"
 
@@ -50,7 +50,7 @@ msgstr "日|月|火|水|木|金|土"
 msgid "am|pm"
 msgstr "am|pm"
 
-#: src/app/app.js:209
+#: src/app/app.js:210
 msgid "project owner"
 msgstr "プロジェクトオーナー"
 

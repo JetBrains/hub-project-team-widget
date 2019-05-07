@@ -8,20 +8,20 @@ msgstr ""
 "X-Crowdin-Project: youtrackjetbrains\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /widgets/hub-project-team-widget/default.pot\n"
-"Last-Translator: jetbrains <mikhail.vink@jetbrains.com>\n"
+"Last-Translator: JetBrains (jetbrains)\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2019-02-11 08:58\n"
+"PO-Revision-Date: 2019-05-07 10:19\n"
 
-#: src/app/app.js:85
+#: src/app/app.js:86
 msgid "1 member"
 msgid_plural "{{$count}} members"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "{{$count}} участник"
+msgstr[1] "{{$count}} участника"
+msgstr[2] "{{$count}} участников"
+msgstr[3] "{{$count}} участников"
 
-#: src/app/app.js:178
+#: src/app/app.js:179
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -33,11 +33,11 @@ msgstr "январь|февраль|март|апрель|май|июнь|июл
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 msgstr "янв|фев|мар|апр|мая|июн|июл|авг|сен|окт|ноя|дек"
 
-#: src/app/app.js:176
+#: src/app/app.js:177
 msgid "Save"
 msgstr "Сохранить"
 
-#: src/app/app.js:167
+#: src/app/app.js:168
 msgid "Select a project"
 msgstr "Выберите проект"
 
@@ -53,7 +53,7 @@ msgstr "вск|пнд|втр|срд|чтв|птн|сбт"
 msgid "am|pm"
 msgstr "ДП|ПП"
 
-#: src/app/app.js:209
+#: src/app/app.js:210
 msgid "project owner"
 msgstr "владелец проекта"
 
