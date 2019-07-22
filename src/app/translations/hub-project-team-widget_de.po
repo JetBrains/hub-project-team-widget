@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: JetBrains (jetbrains)\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2019-06-22 21:04\n"
+"PO-Revision-Date: 2019-07-22 14:10\n"
 
 #: src/app/app.js:86
 msgid "1 member"
