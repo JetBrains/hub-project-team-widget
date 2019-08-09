@@ -39,7 +39,12 @@ const webpackConfig = () => ({
       ...ringUiWebpackConfig.config.module.rules,
       {
         test: /\.css$/,
-        include: componentsPath,
+        include: [resolve(__dirname, join('node_modules', '@jetbrains', 'hub-widget-ui'))],
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.css$/,
+        include: [componentsPath],
         use: [
           MiniCssExtractPlugin.loader,
           {

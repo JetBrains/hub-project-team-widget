@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@jetbrains/babel-preset-jetbrains": "2.1.2",
+    "@jetbrains/hub-widget-ui": "1.0.33",
     "@jetbrains/icons": "1.24.3",
     "@jetbrains/logos": "1.0.5",
     "@jetbrains/ring-ui": "^1.0.39",

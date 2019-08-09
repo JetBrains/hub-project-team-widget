@@ -4,11 +4,15 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {render} from 'react-dom';
 import Select from '@jetbrains/ring-ui/components/select/select';
-import Panel from '@jetbrains/ring-ui/components/panel/panel';
-import Button from '@jetbrains/ring-ui/components/button/button';
 import Link from '@jetbrains/ring-ui/components/link/link';
 import Avatar, {Size} from '@jetbrains/ring-ui/components/avatar/avatar';
 import Badge from '@jetbrains/ring-ui/components/badge/badge';
+import LoaderInline from '@jetbrains/ring-ui/components/loader-inline/loader-inline';
+
+import ConfigurableWidget from '@jetbrains/hub-widget-ui/dist/configurable-widget';
+import EmptyWidget, {EmptyWidgetFaces} from '@jetbrains/hub-widget-ui/dist/empty-widget';
+import ConfigurationForm from '@jetbrains/hub-widget-ui/dist/configuration-form';
+import Permissions from '@jetbrains/hub-widget-ui/dist/permissions';
 
 import TRANSLATIONS from './translations';
 
@@ -21,12 +25,13 @@ const HUB_SERVICE_ID = '0-0-0-0-0';
 class Widget extends Component {
   static propTypes = {
     dashboardApi: PropTypes.object,
+    permissions: PropTypes.object,
     registerWidgetApi: PropTypes.func
   };
 
   constructor(props) {
     super(props);
-    const {registerWidgetApi, dashboardApi} = props;
+    const {registerWidgetApi} = props;
 
     this.state = {
       isConfiguring: false,
@@ -41,9 +46,12 @@ class Widget extends Component {
       onConfigure: () => this.setState({isConfiguring: true}),
       getExternalWidgetOptions: () => ({authClientId: '0-0-0-0-0'})
     });
+  }
 
-    this.initialize(dashboardApi);
-
+  componentDidMount() {
+    const {dashboardApi} = this.props;
+    this.initialize(this.props.dashboardApi);
+    Permissions.init(dashboardApi).then(() => this.setState({permissions: Permissions}));
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -81,12 +89,15 @@ class Widget extends Component {
       users.unshift(owner);
     }
 
-    // eslint-disable-next-line max-len
-    dashboardApi.setTitle(
-      `${team.name}: ${i18n.plural(users.length, '1 member', '{{$count}} members')}`
-    );
+    const projectsPathPrefix =
+      this.state.isStandaloneHub ? 'projects-administration' : 'admin/editProject';
+    const title = {
+      text: team.name,
+      href: `${this.state.hubUrl}/${projectsPathPrefix}/${projectId}?tab=team`,
+      counter: users.length
+    };
 
-    this.setState({users, owner});
+    this.setState({users, owner, title});
   }
 
   async initialize(dashboardApi) {
@@ -110,11 +121,13 @@ class Widget extends Component {
       dashboardApi.readConfig()
     ]);
 
+    const isStandaloneHub = hubServiceName !== 'YouTrack Administration';
     this.setState({
       projects,
-      hubUrl: hubServiceName === 'YouTrack Administration'
-        ? hubUrl.replace('/hub', '/youtrack')
-        : hubUrl
+      // TODO: replacing to '/youtrack' is valid for cloud only.
+      // For non-cloud case we should load YouTrack service.
+      hubUrl: isStandaloneHub ? hubUrl : hubUrl.replace('/hub', '/youtrack'),
+      isStandaloneHub
     });
 
     if (!config) {
@@ -151,7 +164,7 @@ class Widget extends Component {
 
   changeProject = selectedProject => this.setState({selectedProject});
 
-  renderConfiguration() {
+  renderConfiguration = () => {
     const {projects, selectedProject} = this.state;
 
     const data = projects.map(project => ({
@@ -160,33 +173,62 @@ class Widget extends Component {
     }));
 
     return (
-      <div className={styles.widget}>
+      <ConfigurationForm
+        onCancel={this.cancelConfig}
+        onSave={this.saveConfig}
+        isInvalid={!selectedProject}
+      >
         <Select
+          size={Select.Size.FULL}
           data={data}
           selected={selectedProject}
           onChange={this.changeProject}
           label={i18n('Select a project')}
           filter={true}
         />
-
-        <Panel>
-          <Button
-            blue={true}
-            onClick={this.saveConfig}
-            disabled={!selectedProject}
-          >{i18n('Save')}</Button>
-
-          <Button onClick={this.cancelConfig}>{i18n('Cancel')}</Button>
-        </Panel>
-      </div>
+      </ConfigurationForm>
     );
-  }
+  };
 
-  render() {
-    const {isConfiguring, users, owner, hubUrl} = this.state;
+  renderEmptyWidgetContent = () => {
+    const {permissions, selectedProject} = this.state;
 
-    if (isConfiguring) {
-      return this.renderConfiguration();
+    const canReadUsers = permissions && permissions.has(
+      'jetbrains.jetpass.user-read-basic', (selectedProject || {}).id
+    );
+    if (canReadUsers) {
+      const noProjectMessage = selectedProject && selectedProject.label
+        ? i18n(
+          'Project "{{projectName}}" does not have team',
+          {projectName: selectedProject.label}
+        )
+        : i18n('Selected project does not have team');
+
+      return (
+        <EmptyWidget
+          face={EmptyWidgetFaces.OK}
+          message={noProjectMessage}
+        />
+      );
+
+    }
+    return (
+      <EmptyWidget
+        face={EmptyWidgetFaces.ERROR}
+        message={i18n('You do not have permission to view users')}
+      />
+    );
+  };
+
+  renderContent = () => {
+    const {users, owner, hubUrl, permissions} = this.state;
+
+    if (!users || !permissions || !permissions.isInitialized()) {
+      return (<LoaderInline/>);
+    }
+
+    if (!users.length) {
+      return this.renderEmptyWidgetContent();
     }
 
     return (
@@ -206,9 +248,9 @@ class Widget extends Component {
                 <Link href={`${hubUrl}/users/${user.id}`} target="_top">{user.name}</Link>
 
                 {user === owner &&
-                  <Badge gray={true} className={styles.badge}>
-                    {i18n('project owner')}
-                  </Badge>
+                <Badge gray={true} className={styles.badge}>
+                  {i18n('project owner')}
+                </Badge>
                 }
               </div>
 
@@ -218,6 +260,21 @@ class Widget extends Component {
             </div>
           </div>
         ))}
+      </div>
+    );
+  };
+
+  render() {
+    return (
+      <div className={styles.widget}>
+        <ConfigurableWidget
+          isConfiguring={this.state.isConfiguring}
+          dashboardApi={this.props.dashboardApi}
+          widgetTitle={this.state.title}
+          widgetLoader={!this.state.users}
+          Configuration={this.renderConfiguration}
+          Content={this.renderContent}
+        />
       </div>
     );
   }
