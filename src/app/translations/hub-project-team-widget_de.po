@@ -11,17 +11,7 @@ msgstr ""
 "Last-Translator: JetBrains (jetbrains)\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2019-07-22 14:10\n"
-
-#: src/app/app.js:86
-msgid "1 member"
-msgid_plural "{{$count}} members"
-msgstr[0] "1 Mitglied"
-msgstr[1] "{{$count}} Mitglieder"
-
-#: src/app/app.js:179
-msgid "Cancel"
-msgstr "Abbrechen"
+"PO-Revision-Date: 2019-08-12 11:45\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
@@ -31,13 +21,17 @@ msgstr "Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|Novemb
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 msgstr "Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez"
 
-#: src/app/app.js:177
-msgid "Save"
-msgstr "Speichern"
+#: src/app/app.js:217
+msgid "Project \"{{projectName}}\" does not have team"
+msgstr ""
 
-#: src/app/app.js:168
+#: src/app/app.js:202
 msgid "Select a project"
 msgstr "Projekt auswählen"
+
+#: src/app/app.js:221
+msgid "Selected project does not have team"
+msgstr ""
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:114
 msgid "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"
@@ -47,11 +41,15 @@ msgstr "Sonntag|Montag|Dienstag|Mittwoch|Donnerstag|Freitag|Samstag"
 msgid "Sun|Mon|Tue|Wed|Thu|Fri|Sat"
 msgstr "So|Mo|Di|Mi|Do|Fr|Sa"
 
+#: src/app/app.js:234
+msgid "You do not have permission to view users"
+msgstr ""
+
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:117
 msgid "am|pm"
 msgstr "AM|PM"
 
-#: src/app/app.js:210
+#: src/app/app.js:268
 msgid "project owner"
 msgstr "Projektbesitzer"
 
