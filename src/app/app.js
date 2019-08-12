@@ -67,7 +67,7 @@ class Widget extends Component {
   updateTitle() {
     const {teamName, isStandaloneHub, users, homeUrl, selectedProject} = this.state;
 
-    if (!teamName || !users || !selectedProject) {
+    if (!teamName || !users || !selectedProject || typeof isStandaloneHub !== 'boolean') {
       return this.setState({title: undefined});
     }
 
@@ -135,13 +135,13 @@ class Widget extends Component {
     if (isStandaloneHub) {
       this.setState({homeUrl: hubUrl}, () => this.updateTitle());
     } else {
-      dashboardApi.fetchHub('api/rest/services').
+      dashboardApi.fetchHub('api/rest/services', {query: {
+        fields: 'id,name,applicationName,homeUrl',
+        query: 'applicationName:YouTrack'
+      }}).
         then(response => {
-          const youTrackService = (response.services || []).filter(
-            service => service.name.toLowerCase() === 'youtrack'
-          )[0];
-          return (youTrackService || {}).homeUrl ||
-            hubUrl.replace('/hub', '/youtrack');
+          const youTrackService = (response.services || []).filter(service => service.homeUrl)[0];
+          return (youTrackService || {}).homeUrl || hubUrl.replace('/hub', '/youtrack');
         }).
         then(homeUrl => this.setState({homeUrl}), () => this.updateTitle());
     }
