@@ -206,34 +206,50 @@ class Widget extends Component {
     );
   };
 
-  renderEmptyWidgetContent = () => {
-    const {permissions, selectedProject} = this.state;
+  renderNoTeamWidgetContent = () => {
+    const {selectedProject} = this.state;
 
-    const canReadUsers = permissions && permissions.has(
-      'jetbrains.jetpass.user-read-basic', (selectedProject || {}).id
+    const noProjectMessage = selectedProject && selectedProject.label
+      ? i18n(
+        'The {{projectName}} project team doesn\'t have any members',
+        {projectName: selectedProject.label}
+      )
+      : i18n('This project team doesn\'t have any members');
+
+    return (
+      <EmptyWidget
+        face={EmptyWidgetFaces.OK}
+        message={noProjectMessage}
+      />
     );
-    if (canReadUsers) {
-      const noProjectMessage = selectedProject && selectedProject.label
-        ? i18n(
-          'Project "{{projectName}}" does not have team',
-          {projectName: selectedProject.label}
-        )
-        : i18n('Selected project does not have team');
+  };
 
-      return (
-        <EmptyWidget
-          face={EmptyWidgetFaces.OK}
-          message={noProjectMessage}
-        />
-      );
-
-    }
+  renderNoPermissionsWidgetContent = canReadUsers => {
+    const noPermissionsMessage = canReadUsers
+      ? i18n('You don\'t have permission to view basic project data')
+      : i18n('You don\'t have permission to view basic profile data for other users');
     return (
       <EmptyWidget
         face={EmptyWidgetFaces.ERROR}
-        message={i18n('You do not have permission to view users')}
+        message={noPermissionsMessage}
       />
     );
+  };
+
+  renderEmptyWidgetContent = () => {
+    const {permissions, selectedProject} = this.state;
+
+    const projectId = (selectedProject || {}).id;
+    const canReadUsers = permissions && permissions.has(
+      'jetbrains.jetpass.user-read-basic', projectId
+    );
+    const canReadProject = permissions && permissions.has(
+      'jetbrains.jetpass.project-read-basic', projectId
+    );
+    if (canReadUsers && canReadProject) {
+      return this.renderNoTeamWidgetContent();
+    }
+    return this.renderNoPermissionsWidgetContent(canReadUsers);
   };
 
   renderContent = () => {
