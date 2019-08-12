@@ -64,6 +64,22 @@ class Widget extends Component {
     }
   }
 
+  updateTitle() {
+    const {teamName, isStandaloneHub, users, homeUrl, selectedProject} = this.state;
+
+    if (!teamName || !users || !selectedProject) {
+      return this.setState({title: undefined});
+    }
+
+    const projectsPathPrefix = isStandaloneHub ? 'projects-administration' : 'admin/editProject';
+    const href = homeUrl
+      ? `${homeUrl}/${projectsPathPrefix}/${selectedProject.key}?tab=team`
+      : undefined;
+
+    const title = {text: teamName, href, counter: users.length};
+    return this.setState({title});
+  }
+
   async loadProjectTeam(projectId) {
     const {dashboardApi} = this.props;
 
@@ -89,15 +105,7 @@ class Widget extends Component {
       users.unshift(owner);
     }
 
-    const projectsPathPrefix =
-      this.state.isStandaloneHub ? 'projects-administration' : 'admin/editProject';
-    const title = {
-      text: team.name,
-      href: `${this.state.hubUrl}/${projectsPathPrefix}/${projectId}?tab=team`,
-      counter: users.length
-    };
-
-    this.setState({users, owner, title});
+    this.setState({users, owner, teamName: team.name}, () => this.updateTitle());
   }
 
   async initialize(dashboardApi) {
@@ -122,13 +130,21 @@ class Widget extends Component {
     ]);
 
     const isStandaloneHub = hubServiceName !== 'YouTrack Administration';
-    this.setState({
-      projects,
-      // TODO: replacing to '/youtrack' is valid for cloud only.
-      // For non-cloud case we should load YouTrack service.
-      hubUrl: isStandaloneHub ? hubUrl : hubUrl.replace('/hub', '/youtrack'),
-      isStandaloneHub
-    });
+    this.setState({projects, isStandaloneHub});
+
+    if (isStandaloneHub) {
+      this.setState({homeUrl: hubUrl}, () => this.updateTitle());
+    } else {
+      dashboardApi.fetchHub('api/rest/services').
+        then(response => {
+          const youTrackService = (response.services || []).filter(
+            service => service.name.toLowerCase() === 'youtrack'
+          )[0];
+          return (youTrackService || {}).homeUrl ||
+            hubUrl.replace('/hub', '/youtrack');
+        }).
+        then(homeUrl => this.setState({homeUrl}), () => this.updateTitle());
+    }
 
     if (!config) {
       dashboardApi.enterConfigMode();
@@ -221,7 +237,7 @@ class Widget extends Component {
   };
 
   renderContent = () => {
-    const {users, owner, hubUrl, permissions} = this.state;
+    const {users, owner, homeUrl, permissions} = this.state;
 
     if (!users || !permissions || !permissions.isInitialized()) {
       return (<LoaderInline/>);
@@ -245,7 +261,7 @@ class Widget extends Component {
 
             <div className={styles.userInfo}>
               <div>
-                <Link href={`${hubUrl}/users/${user.id}`} target="_top">{user.name}</Link>
+                <Link href={`${homeUrl}/users/${user.id}`} target="_top">{user.name}</Link>
 
                 {user === owner &&
                 <Badge gray={true} className={styles.badge}>
