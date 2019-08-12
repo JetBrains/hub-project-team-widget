@@ -239,7 +239,7 @@ class Widget extends Component {
   renderContent = () => {
     const {users, owner, homeUrl, permissions} = this.state;
 
-    if (!users || !permissions || !permissions.isInitialized()) {
+    if (!users || !permissions || !permissions.isInitialized() || !homeUrl) {
       return (<LoaderInline/>);
     }
 
