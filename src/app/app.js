@@ -6,7 +6,6 @@ import {render} from 'react-dom';
 import Select from '@jetbrains/ring-ui/components/select/select';
 import Link from '@jetbrains/ring-ui/components/link/link';
 import Avatar, {Size} from '@jetbrains/ring-ui/components/avatar/avatar';
-import Badge from '@jetbrains/ring-ui/components/badge/badge';
 import LoaderInline from '@jetbrains/ring-ui/components/loader-inline/loader-inline';
 
 import ConfigurableWidget from '@jetbrains/hub-widget-ui/dist/configurable-widget';
@@ -252,6 +251,54 @@ class Widget extends Component {
     return this.renderNoPermissionsWidgetContent(canReadUsers);
   };
 
+  renderUser = user => {
+    const {homeUrl} = this.state;
+
+    return (
+      <div key={user.id} className={styles.user}>
+        <div className={styles.userAvatar}>
+          <Avatar
+            style={{verticalAlign: 'middle'}}
+            url={user.profile.avatar.url}
+            size={Size.Size32}
+          />
+        </div>
+
+        <div className={styles.userInfo}>
+          <div>
+            <Link href={`${homeUrl}/users/${user.id}`} target="_top">{user.name}</Link>
+          </div>
+
+          <div className={styles.userEmail}>
+            {user.profile.email ? user.profile.email.email : null}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  renderOwnerSection = (owner, ownerIsInTeam) =>
+    ownerIsInTeam && (
+      <div className={styles.listSection}>
+        <div className={styles.listSectionHeader}>
+          {i18n('project owner')}
+        </div>
+        { this.renderUser(owner) }
+      </div>
+    );
+
+  renderRestOfTeamSection = (restOfTeam, ownerIsInTeam) =>
+    !!restOfTeam.length && (
+      <div className={styles.listSection}>
+        {ownerIsInTeam && (
+          <div className={styles.listSectionHeader}>
+            {i18n('team')}
+          </div>
+        )}
+        {restOfTeam.map(user => (this.renderUser(user)))}
+      </div>
+    );
+
   renderContent = () => {
     const {users, owner, homeUrl, permissions} = this.state;
 
@@ -263,35 +310,15 @@ class Widget extends Component {
       return this.renderEmptyWidgetContent();
     }
 
+    const restOfTeam = (users || []).filter(
+      user => user.id !== (owner || {}).id
+    );
+    const ownerIsInTeam = (users.length - restOfTeam.length) === 1;
+
     return (
       <div className={styles.widget}>
-        {users.map(user => (
-          <div key={user.id} className={styles.user}>
-            <div className={styles.userAvatar}>
-              <Avatar
-                style={{verticalAlign: 'middle'}}
-                url={user.profile.avatar.url}
-                size={Size.Size32}
-              />
-            </div>
-
-            <div className={styles.userInfo}>
-              <div>
-                <Link href={`${homeUrl}/users/${user.id}`} target="_top">{user.name}</Link>
-
-                {user === owner &&
-                <Badge gray={true} className={styles.badge}>
-                  {i18n('project owner')}
-                </Badge>
-                }
-              </div>
-
-              <div className={styles.userEmail}>
-                {user.profile.email ? user.profile.email.email : null}
-              </div>
-            </div>
-          </div>
-        ))}
+        { this.renderOwnerSection(owner, ownerIsInTeam) }
+        { this.renderRestOfTeamSection(restOfTeam, ownerIsInTeam) }
       </div>
     );
   };
