@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: JetBrains (jetbrains)\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
-"PO-Revision-Date: 2019-08-12 14:58\n"
+"PO-Revision-Date: 2019-08-17 13:52\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
@@ -21,7 +21,7 @@ msgstr "Janvier|Février|Mars|Avril|Mai|Juin|Juillet|Août|Septembre|Octobre|Nov
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 msgstr "Jan|Fév|Mar|Avr|Mai|Jun|Jul|Aoû|Sep|Oct|Nov|Déc"
 
-#: src/app/app.js:202
+#: src/app/app.js:201
 msgid "Select a project"
 msgstr "Sélectionner un projet"
 
@@ -33,19 +33,19 @@ msgstr "Dimanche|Lundi|Mardi|Mercredi|Jeudi|Vendredi|Samedi"
 msgid "Sun|Mon|Tue|Wed|Thu|Fri|Sat"
 msgstr "Dim|Lun|Mar|Mer|Jeu|Ven|Sam"
 
-#: src/app/app.js:213
+#: src/app/app.js:212
 msgid "The {{projectName}} project team doesn't have any members"
 msgstr ""
 
-#: src/app/app.js:217
+#: src/app/app.js:216
 msgid "This project team doesn't have any members"
 msgstr ""
 
-#: src/app/app.js:230
+#: src/app/app.js:229
 msgid "You don't have permission to view basic profile data for other users"
 msgstr ""
 
-#: src/app/app.js:229
+#: src/app/app.js:228
 msgid "You don't have permission to view basic project data"
 msgstr ""
 
@@ -56,4 +56,8 @@ msgstr "am|pm"
 #: src/app/app.js:284
 msgid "project owner"
 msgstr "propriétaire du projet"
+
+#: src/app/app.js:295
+msgid "team"
+msgstr ""
 
