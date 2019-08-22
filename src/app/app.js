@@ -19,6 +19,7 @@ import TRANSLATIONS from './translations';
 // import '!!file-loader?name=[name].[ext]!../../manifest.json';
 import styles from './app.css';
 
+
 const HUB_SERVICE_ID = '0-0-0-0-0';
 
 class Widget extends Component {
