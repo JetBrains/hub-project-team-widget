@@ -1,9 +1,9 @@
 {
   "key": "hub-project-team-widget",
   "name": "Project Team",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "Displays a list of users who are members of a project team in Hub.",
-  "author": "Max Maximov <max.maximov@gmail.com>",
+  "author": "JetBrains",
   "applicationName": "Hub",
   "products": {
     "Hub": ">=2018.1",
