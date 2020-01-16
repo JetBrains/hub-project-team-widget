@@ -4,14 +4,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: youtrackjetbrains\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: youtrackjetbrains\n"
 "X-Crowdin-Language: ja\n"
 "X-Crowdin-File: /widgets/hub-project-team-widget/default.pot\n"
-"Last-Translator: JetBrains (jetbrains)\n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
-"PO-Revision-Date: 2019-08-22 20:17\n"
+"PO-Revision-Date: 2020-01-14 21:03\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
@@ -35,19 +33,19 @@ msgstr "日|月|火|水|木|金|土"
 
 #: src/app/app.js:213
 msgid "The {{projectName}} project team doesn't have any members"
-msgstr ""
+msgstr "\"{{projectName}}\" プロジェクトのチームにはメンバーがいません"
 
 #: src/app/app.js:217
 msgid "This project team doesn't have any members"
-msgstr ""
+msgstr "このプロジェクトのチームにはメンバーがいません"
 
 #: src/app/app.js:230
 msgid "You don't have permission to view basic profile data for other users"
-msgstr ""
+msgstr "他のユーザーの基本的なプロフィールデータを表示する権限がありません"
 
 #: src/app/app.js:229
 msgid "You don't have permission to view basic project data"
-msgstr ""
+msgstr "基本的なプロジェクトデータを表示する権限がありません"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:117
 msgid "am|pm"
@@ -59,5 +57,5 @@ msgstr "プロジェクトオーナー"
 
 #: src/app/app.js:296
 msgid "team"
-msgstr ""
+msgstr "チーム"
 

@@ -4,14 +4,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: youtrackjetbrains\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: youtrackjetbrains\n"
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /widgets/hub-project-team-widget/default.pot\n"
-"Last-Translator: JetBrains (jetbrains)\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
-"PO-Revision-Date: 2019-08-22 20:17\n"
+"PO-Revision-Date: 2020-01-14 21:02\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
@@ -35,19 +33,19 @@ msgstr "Dim|Lun|Mar|Mer|Jeu|Ven|Sam"
 
 #: src/app/app.js:213
 msgid "The {{projectName}} project team doesn't have any members"
-msgstr ""
+msgstr "L'équipe du projet {{projectName}} ne comporte aucun membre"
 
 #: src/app/app.js:217
 msgid "This project team doesn't have any members"
-msgstr ""
+msgstr "L'équipe de ce projet ne comporte aucun membre"
 
 #: src/app/app.js:230
 msgid "You don't have permission to view basic profile data for other users"
-msgstr ""
+msgstr "Vous n’avez pas l’autorisation de consulter les données de base des profils des autres utilisateurs"
 
 #: src/app/app.js:229
 msgid "You don't have permission to view basic project data"
-msgstr ""
+msgstr "Vous n’avez pas l’autorisation de consulter les données de base du projet"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:117
 msgid "am|pm"
@@ -59,5 +57,5 @@ msgstr "propriétaire du projet"
 
 #: src/app/app.js:296
 msgid "team"
-msgstr ""
+msgstr "équipe"
 
