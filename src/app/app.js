@@ -1,5 +1,5 @@
 import DashboardAddons from 'hub-dashboard-addons';
-import {setLocale, i18n} from 'hub-dashboard-addons/dist/localization';
+import {i18n} from 'hub-dashboard-addons/dist/localization';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {render} from 'react-dom';
@@ -13,7 +13,7 @@ import EmptyWidget, {EmptyWidgetFaces} from '@jetbrains/hub-widget-ui/dist/empty
 import ConfigurationForm from '@jetbrains/hub-widget-ui/dist/configuration-form';
 import Permissions from '@jetbrains/hub-widget-ui/dist/permissions';
 
-import TRANSLATIONS from './translations';
+import {initTranslations} from './translations';
 
 // eslint-disable-next-line import/no-unresolved
 // import '!!file-loader?name=[name].[ext]!../../manifest.json';
@@ -341,7 +341,7 @@ class Widget extends Component {
 }
 
 DashboardAddons.registerWidget((dashboardApi, registerWidgetApi) => {
-  setLocale(DashboardAddons.locale, TRANSLATIONS);
+  initTranslations(DashboardAddons.locale);
 
   render(
     <Widget
