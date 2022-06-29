@@ -11,7 +11,7 @@ msgstr ""
 "X-Crowdin-File-ID: 652156\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
-"PO-Revision-Date: 2022-05-17 21:56\n"
+"PO-Revision-Date: 2022-06-29 11:14\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
@@ -35,19 +35,19 @@ msgstr "Dom|Lun|Mar|Mer|Gio|Ven|Sab"
 
 #: src/app/app.js:213
 msgid "The {{projectName}} project team doesn't have any members"
-msgstr ""
+msgstr "Il team del progetto {{projectName}} non ha membri"
 
 #: src/app/app.js:217
 msgid "This project team doesn't have any members"
-msgstr ""
+msgstr "Questo team del progetto non ha membri"
 
 #: src/app/app.js:230
 msgid "You don't have permission to view basic profile data for other users"
-msgstr ""
+msgstr "Non si dispone dell'autorizzazione per visualizzare i dati di base del profilo per altri utenti"
 
 #: src/app/app.js:229
 msgid "You don't have permission to view basic project data"
-msgstr ""
+msgstr "Non si dispone dell'autorizzazione per visualizzare i dati di base del progetto"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:117
 msgid "am|pm"

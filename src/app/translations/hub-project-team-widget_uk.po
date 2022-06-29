@@ -11,15 +11,15 @@ msgstr ""
 "X-Crowdin-File-ID: 652156\n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
-"PO-Revision-Date: 2022-05-17 21:56\n"
+"PO-Revision-Date: 2022-06-29 11:15\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
-msgstr ""
+msgstr "Січень|Лютий|Березень|Квітень|Травень|Червень|Липень|Серпень|Вересень|Жовтень|Листопад|Грудень"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:115
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
-msgstr ""
+msgstr "Січ|Лют|Бер|Кві|Тра|Чер|Лип|Сер|Вер|Жов|Лис|Гру"
 
 #: src/app/app.js:202
 msgid "Select a project"
@@ -27,11 +27,11 @@ msgstr ""
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:114
 msgid "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"
-msgstr ""
+msgstr "Неділя|Понеділок|Вівторок|Середа|Четвер|Пʼятниця|Субота"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:113
 msgid "Sun|Mon|Tue|Wed|Thu|Fri|Sat"
-msgstr ""
+msgstr "Нд|Пн|Вт|Ср|Чт|Пт|Сб"
 
 #: src/app/app.js:213
 msgid "The {{projectName}} project team doesn't have any members"
@@ -55,9 +55,9 @@ msgstr ""
 
 #: src/app/app.js:285
 msgid "project owner"
-msgstr ""
+msgstr "власник проєкту"
 
 #: src/app/app.js:296
 msgid "team"
-msgstr ""
+msgstr "команда"
 
