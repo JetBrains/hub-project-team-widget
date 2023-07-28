@@ -11,53 +11,53 @@ msgstr ""
 "X-Crowdin-File-ID: 652156\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
-"PO-Revision-Date: 2022-06-30 12:33\n"
+"PO-Revision-Date: 2023-07-28 13:02\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
-msgstr ""
+msgstr "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:115
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
-msgstr ""
+msgstr "Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara"
 
 #: src/app/app.js:202
 msgid "Select a project"
-msgstr ""
+msgstr "Bir proje seç"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:114
 msgid "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"
-msgstr ""
+msgstr "Pazar|Pazartesi|Salı|Çarşamba|Perşembe|Cuma|Cumartesi"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:113
 msgid "Sun|Mon|Tue|Wed|Thu|Fri|Sat"
-msgstr ""
+msgstr "Paz|Pzt|Sal|Çrş|Prş|Cum|Cmt"
 
 #: src/app/app.js:213
 msgid "The {{projectName}} project team doesn't have any members"
-msgstr ""
+msgstr "{{projectName}} proje ekibinin herhangi bir üyesi yok"
 
 #: src/app/app.js:217
 msgid "This project team doesn't have any members"
-msgstr ""
+msgstr "Bu proje ekibinin herhangi bir üyesi yok"
 
 #: src/app/app.js:230
 msgid "You don't have permission to view basic profile data for other users"
-msgstr ""
+msgstr "Diğer kullanıcıların temel profil verilerini görüntüleme izniniz yok"
 
 #: src/app/app.js:229
 msgid "You don't have permission to view basic project data"
-msgstr ""
+msgstr "Temel proje verilerini görüntüleme izniniz yok"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:117
 msgid "am|pm"
-msgstr ""
+msgstr "öö|ös"
 
 #: src/app/app.js:285
 msgid "project owner"
-msgstr ""
+msgstr "proje sahibi"
 
 #: src/app/app.js:296
 msgid "team"
-msgstr ""
+msgstr "ekip"
 

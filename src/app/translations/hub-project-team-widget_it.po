@@ -11,7 +11,7 @@ msgstr ""
 "X-Crowdin-File-ID: 652156\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
-"PO-Revision-Date: 2022-06-30 12:33\n"
+"PO-Revision-Date: 2023-07-28 13:01\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"

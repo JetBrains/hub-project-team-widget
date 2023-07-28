@@ -11,7 +11,7 @@ msgstr ""
 "X-Crowdin-File-ID: 652156\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
-"PO-Revision-Date: 2022-06-30 12:32\n"
+"PO-Revision-Date: 2023-07-28 13:01\n"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:116
 msgid "January|February|March|April|May|June|July|August|September|October|November|December"
@@ -19,11 +19,11 @@ msgstr "ינואר|פברואר|מרץ|אפריל|מאי|יוני|יולי|או�
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:115
 msgid "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
-msgstr ""
+msgstr "ינו'|פבר'|מרץ|אפר'|מאי|יונ'|יול'|אוג'|ספט'|אוק'|נוב'|דצמ'"
 
 #: src/app/app.js:202
 msgid "Select a project"
-msgstr ""
+msgstr "בחירת פרויקט"
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:114
 msgid "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"
@@ -51,13 +51,13 @@ msgstr ""
 
 #: node_modules/hub-dashboard-addons/components/localization/src/localization.js:117
 msgid "am|pm"
-msgstr ""
+msgstr "לפנ\"צ|אחה\"צ"
 
 #: src/app/app.js:285
 msgid "project owner"
-msgstr ""
+msgstr "בעל הפרויקט"
 
 #: src/app/app.js:296
 msgid "team"
-msgstr ""
+msgstr "צוות"
 
